@@ -3,14 +3,33 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  ToastAndroid
 } from 'react-native';
 
+import {
+  StackNavigator,
+} from 'react-navigation';
+
+import NextPageComponent from './bundle/NextPageComponent';
+
+const App = StackNavigator({
+  Profile: {screen: NextPageComponent},
+});
+
 class HelloWorld extends React.Component {
+
+  _onPressText() {
+    const { navigate } = this.props.navigation;
+    console.log("You tapped the button!");
+    ToastAndroid.show('clicked!',ToastAndroid.SHORT);
+    navigate('Profile', { name: 'Jane' });
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.hello}>Hello, React Native</Text>
+         <Text style={styles.hello} onPress={this._onPressText}>Hello, React Native</Text>
       </View>
     )
   }
