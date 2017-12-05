@@ -4,17 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.apkfuns.reactnative_plugin_sample.MainActivity">
+    tools:context="com.apkfuns.reactnative_plugin_sample.views.MainActivity">
 
-    <TextView
-        android:id="@+id/text"
+    <ListView
+        android:id="@+id/ListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Click to ReactNative!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center"/>
+        android:divider="#dddddd"
+        android:dividerHeight="0.5dp"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -56,4 +56,6 @@ freeline_project_description.json
 
 .idea/
 node_modules/
-。vscode/
+.vscode/
+bundle/
+bundle2/

@@ -11,12 +11,14 @@ import {
     StackNavigator,
 } from 'react-navigation';
 
-import NextPageComponent from './bundle/NextPageComponent';
-import MainComponent from './bundle/MainComponent';
+import NextPageComponent from './src/NextPageComponent';
+import MainComponent from './src/MainComponent';
+import WebViewComponent from './src/WebViewComponent'
 
 const App = StackNavigator({
     Home: {screen: MainComponent},
     Next: {screen: NextPageComponent},
+    WebView: {screen: WebViewComponent}
  });
 
 AppRegistry.registerComponent('MyReactNativeApp', () => App);

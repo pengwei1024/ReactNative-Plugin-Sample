@@ -7,8 +7,11 @@ import {
   Button,
   ToastAndroid,
   FlatList,
-  TouchableOpacity
+  TouchableOpacity,
+  NativeModules
 } from "react-native";
+
+var ToastModule = NativeModules.ToastModule;
 
 export default class HelloWorld extends React.Component {
   static navigationOptions = ({ navigation }) => ({
@@ -32,12 +35,14 @@ export default class HelloWorld extends React.Component {
     super(props);
     this.state = {
       data: [],
-      refreshing: false
+      refreshing: false,
+      navigation: undefined
     };
   }
 
   render() {
-    const { navigate } = this.props.navigation;
+    // const { navigate } = this.props.navigation;
+    // this.setState({navigation: navigate})
     return (
       <View style={styles.container}>
         <FlatList
@@ -74,7 +79,11 @@ export default class HelloWorld extends React.Component {
     setTimeout(() => {
       var datas = [];
       for (var i = 100; i >= 0; i--) {
-        datas.push({ value: "Index " + i });
+        if (i == 100) {
+          datas.push({ value: "" + new Date() });
+        } else {
+          datas.push({ value: "Index " + i });
+        }
       }
       this.setState({ data: datas });
       this.setState({ refreshing: false });
@@ -82,7 +91,8 @@ export default class HelloWorld extends React.Component {
   };
 
   _itemClick = (item, index) => {
-    alert("index:" + index + ", data:" + item.value);
+    this.props.navigation.navigate("WebView", {});
+    // alert("index:" + index + ", data:" + item.value);
   };
 
   componentDidMount() {
