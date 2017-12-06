@@ -26,6 +26,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             {R.mipmap.ic_launcher_round, "百度 Hi"}
     };
 
+    // 从 sdcard 加载 bundle
+    private static final boolean LOAD_FROM_SDCARD = true;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +51,21 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent it = new Intent(this, ReactActivity.class);
+        BundleEntity entity = null;
         switch (position) {
             case 0:
-                it.putExtra("data", new BundleEntity(new File("hi.android.bundle"), "hi.android", "HiReactNativeApp"));
+                entity = new BundleEntity(new File("hi.android.bundle"), "hi.android", "HiReactNativeApp");
+                if (LOAD_FROM_SDCARD) {
+                    entity.setBundleFile(new File("/sdcard/bundleAssert/app1"));
+                }
+                it.putExtra("data", entity);
                 break;
             case 1:
-                it.putExtra("data", new BundleEntity(new File("index.android.bundle"), "index.android", "MyReactNativeApp"));
+                entity = new BundleEntity(new File("index.android.bundle"), "index.android", "MyReactNativeApp");
+                if (LOAD_FROM_SDCARD) {
+                    entity.setBundleFile(new File("/sdcard/bundleAssert/app2"));
+                }
+                it.putExtra("data", entity);
                 break;
             default:
                 break;

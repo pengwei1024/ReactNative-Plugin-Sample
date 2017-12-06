@@ -1,5 +1,5 @@
 # ReactNative-Plugin-Sample
-ReactNative Plugin Sample For Android
+ReactNative 作为 Android 插件的 Demo
 
 - 下载 npm 依赖
 
@@ -15,4 +15,12 @@ react-native start
 
 ### 示例
 ![](./screenshot/ss1.gif)
+
+### 打包离线包到 sdcard
+
+自动打包保存到 `/sdcard/bundleAssert/` 下
+
+```
+./pack.sh
+```
 

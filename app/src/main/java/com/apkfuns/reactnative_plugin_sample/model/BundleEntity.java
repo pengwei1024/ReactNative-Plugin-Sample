@@ -43,6 +43,9 @@ public class BundleEntity implements Parcelable {
         return moduleName;
     }
 
+    public void setBundleFile(File bundleFile) {
+        this.bundleFile = bundleFile;
+    }
 
     @Override
     public int describeContents() {
