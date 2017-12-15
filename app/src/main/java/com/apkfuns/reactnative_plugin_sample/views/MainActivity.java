@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     };
 
     // 从 sdcard 加载 bundle
-    private static final boolean LOAD_FROM_SDCARD = true;
+    private static final boolean LOAD_FROM_SDCARD = false;
 
 
     @Override
@@ -54,14 +54,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         BundleEntity entity = null;
         switch (position) {
             case 0:
-                entity = new BundleEntity(new File("hi.android.bundle"), "hi.android", "HiReactNativeApp");
+                entity = new BundleEntity(new File("hi.android.bundle"), "hi", "HiReactNativeApp");
                 if (LOAD_FROM_SDCARD) {
                     entity.setBundleFile(new File("/sdcard/bundleAssert/app1"));
                 }
                 it.putExtra("data", entity);
                 break;
             case 1:
-                entity = new BundleEntity(new File("index.android.bundle"), "index.android", "MyReactNativeApp");
+                entity = new BundleEntity(new File("index.android.bundle"), "index", "MyReactNativeApp");
                 if (LOAD_FROM_SDCARD) {
                     entity.setBundleFile(new File("/sdcard/bundleAssert/app2"));
                 }

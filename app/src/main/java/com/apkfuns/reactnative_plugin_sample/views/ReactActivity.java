@@ -34,7 +34,7 @@ public class ReactActivity extends AppCompatActivity implements DefaultHardwareB
         }
         ReactInstanceManagerBuilder builder = ReactInstanceManager.builder()
                 .setApplication(getApplication())
-                .setJSMainModuleName(bundleEntity.getJsMainModuleName())
+                .setJSMainModulePath(bundleEntity.getJsMainModuleName())
                 .addPackage(new MainReactPackage())
                 .addPackage(new NativePackage())
                 .setUseDeveloperSupport(true)
